@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{916A00D2-C514-47FD-8E90-2535C0BAA2F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BDH.Manage</RootNamespace>
+    <AssemblyName>BDH.Manage</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="project\BridgeXzsbManage.cs" />
+    <Compile Include="project\BridgeSystemManage.cs" />
+    <Compile Include="project\BriComDisInfo.cs" />
+    <Compile Include="project\BriComDisInfoManager.cs" />
+    <Compile Include="project\BriCompAsse.cs" />
+    <Compile Include="project\BridCompWeight.cs" />
+    <Compile Include="project\ChildBridge.cs" />
+    <Compile Include="project\BridgeClient.cs" />
+    <Compile Include="project\BridgeCompoment.cs" />
+    <Compile Include="project\BridgeDazl.cs" />
+    <Compile Include="project\BridgeJgjs.cs" />
+    <Compile Include="project\BridgeJszk.cs" />
+    <Compile Include="project\BridgeLinear.cs" />
+    <Compile Include="project\BridgeMember.cs" />
+    <Compile Include="project\BridgePic.cs" />
+    <Compile Include="project\BridgeSbjg.cs" />
+    <Compile Include="project\BridgeTools.cs" />
+    <Compile Include="project\BridgeType.cs" />
+    <Compile Include="project\BridgeXbjg.cs" />
+    <Compile Include="project\BridgeXjgc.cs" />
+    <Compile Include="project\Bridge.cs" />
+    <Compile Include="project\BriStructureWeight.cs" />
+    <Compile Include="project\BriTypeConfig.cs" />
+    <Compile Include="project\BriWholeAsse.cs" />
+    <Compile Include="SysClassExtension.cs" />
+    <Compile Include="tools\Cableforce.cs" />
+    <Compile Include="tools\Chloridion.cs" />
+    <Compile Include="document\ColConMedia.cs" />
+    <Compile Include="document\ColConTable.cs" />
+    <Compile Include="document\ColConText.cs" />
+    <Compile Include="document\ColTemplate.cs" />
+    <Compile Include="company\Company.cs" />
+    <Compile Include="tools\ConCarbItems.cs" />
+    <Compile Include="tools\ConStrengDate.cs" />
+    <Compile Include="tools\ConstrengTest.cs" />
+    <Compile Include="tools\ConstrResistItem.cs" />
+    <Compile Include="picture\DailyDetection.cs" />
+    <Compile Include="picture\DailyOutDisease.cs" />
+    <Compile Include="picture\DealPic.cs" />
+    <Compile Include="picture\DealpicsPics.cs" />
+    <Compile Include="company\Department.cs" />
+    <Compile Include="company\DepartmentManager.cs" />
+    <Compile Include="systemConfig\DetectionDeduct.cs" />
+    <Compile Include="picture\DiseStatistics.cs" />
+    <Compile Include="systemConfig\DisScale.cs" />
+    <Compile Include="document\DocColumn.cs" />
+    <Compile Include="document\DocTemplate.cs" />
+    <Compile Include="project\Emp.cs" />
+    <Compile Include="tools\Frequency.cs" />
+    <Compile Include="tools\Hostrope.cs" />
+    <Compile Include="tools\LevellingProcess.cs" />
+    <Compile Include="systemConfig\Material.cs" />
+    <Compile Include="tools\MaterialCom.cs" />
+    <Compile Include="systemConfig\MPConfig.cs" />
+    <Compile Include="systemConfig\MpConfigs.cs" />
+    <Compile Include="systemConfig\Permission.cs" />
+    <Compile Include="picture\Pic.cs" />
+    <Compile Include="picture\Pics.cs" />
+    <Compile Include="tools\PierVertical.cs" />
+    <Compile Include="project\Project.cs" />
+    <Compile Include="project\ProjectManager.cs" />
+    <Compile Include="systemConfig\QuantifyExt.cs" />
+    <Compile Include="systemConfig\QuantifyInfo.cs" />
+    <Compile Include="tools\RebaCorrosion.cs" />
+    <Compile Include="tools\Rebar.cs" />
+    <Compile Include="tools\Riverbed.cs" />
+    <Compile Include="systemConfig\Role.cs" />
+    <Compile Include="systemConfig\RoleManager.cs" />
+    <Compile Include="systemConfig\RolesPermissions.cs" />
+    <Compile Include="systemConfig\Structure.cs" />
+    <Compile Include="systemConfig\Terminology.cs" />
+    <Compile Include="systemConfig\TValue.cs" />
+    <Compile Include="systemConfig\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="systemConfig\UserManager.cs" />
+    <Compile Include="systemConfig\UserPics.cs" />
+    <Compile Include="systemConfig\UserState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDH.Sql\BDH.Sql.csproj">
+      <Project>{43ed8979-94e9-4d3a-8ad3-5c74819c408a}</Project>
+      <Name>BDH.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MdHelper\BDH.MdHelper.csproj">
+      <Project>{83963e5f-0fda-4ba7-abec-55e7aa26cef0}</Project>
+      <Name>BDH.MdHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+﻿<Page x:Class="BridgeDetectHelper.DiseaseCountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BridgeDetectHelper"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DiseaseCountPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Command="{Binding ShowPicEditCommand}" Content="处理图片" Width="120" Height="40" Grid.Row="0"/>
+        <Button Command="{Binding TestSqlCommand}" Content="Test sql" Width="120" Height="40" Grid.Row="1"/>
+    </Grid>
+</Page>

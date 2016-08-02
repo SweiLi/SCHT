@@ -1,0 +1,151 @@
+﻿<Page x:Class="BridgeDetectHelper.ProjectMgrMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BridgeDetectHelper"
+      mc:Ignorable="d" Background="White"
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="ProjectMgrMainPage">
+    <Page.Resources>
+        <local:ProjectQueryParamConverter x:Key="prj_query_cvt"/>
+        <local:ProjectStateChineseConverter x:Key="PrjStateChCvt"/>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Button"  x:Key="ButtonBarStyle">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="5,0,5 ,0" />
+        </Style>
+        <Style TargetType="Label"  x:Key="LabelBarStyle">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+
+        </Style>
+        <Style x:Key="PageTextBlock1" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#FF333333" />
+        </Style>
+        
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#B0C4DE" Margin="0,5,0,0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="30"/>
+                <RowDefinition  Height="55"/>
+                <RowDefinition  Height="55"/>
+            </Grid.RowDefinitions>
+            <Label Content="条件查询" Grid.Row="0" Background="#009a0b"  Height="30" Grid.ColumnSpan="5" 
+                   FontSize="16" VerticalContentAlignment="Center" Foreground="White" />
+            <Label  Content="项目名称：" Grid.Column="0" Grid.Row="1" Style="{ StaticResource LabelBarStyle}"/>
+            <Label  Content="合同编号：" Grid.Column="0" Grid.Row="2"   Style="{ StaticResource LabelBarStyle}"/>
+            <Label  Content="开始时间：" Grid.Column="2" Grid.Row="1"   Style="{ StaticResource LabelBarStyle}"/>
+            <Label  Content="项目状态：" Grid.Column="2" Grid.Row="2"   Style="{ StaticResource LabelBarStyle}"/>
+
+            <ComboBox x:Name="cmbPrjState" Width="198" Height="30" Grid.Column="3" Grid.Row="2" 
+                      HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtPrjName" Grid.Column="1" Grid.Row="1" Height="30"/>
+            <TextBox x:Name="txtContract" Grid.Column="1" Grid.Row="2" Height="30"/>
+            <DatePicker x:Name="dpStartTime" Width="200" Height="30" Grid.Column="3" Grid.Row="1"  VerticalContentAlignment="Center"
+            SelectedDateFormat="Long" FirstDayOfWeek="Monday"
+            IsTodayHighlighted="False">
+                <DatePicker.BlackoutDates>
+                </DatePicker.BlackoutDates>
+            </DatePicker>
+            <Button Command="{Binding QueryProjectCommand}" Grid.Column="4" Grid.Row="2" Width="100" 
+                    Style="{StaticResource BtnFuncStyle}"  HorizontalAlignment="Left" Margin="10,0,0,0" Content="查询">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource prj_query_cvt}">
+                        <MultiBinding.Bindings>
+                            <Binding ElementName="txtPrjName" Path="Text"/>
+                            <Binding ElementName="dpStartTime" Path="SelectedDate"/>
+                            <Binding ElementName="txtContract" Path="Text"/>
+                            <Binding ElementName="cmbPrjState" Path="SelectedItem"/>
+                        </MultiBinding.Bindings>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </Grid>
+        <!--Button BAR-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="+新建项目" Command="{Binding AddProjectCommand}"  x:Name="AddProject"   Margin="10,0,0,0" Style="{StaticResource btnNewStyle}"/>
+            <Button Content="+分配组员"      Margin="10,0,0,0" Style="{StaticResource btnNewStyle}"/>
+            <Button Content="+委托单位信息"  Margin="10,0,0,0" Style="{StaticResource btnNewStyle}"/>
+        </StackPanel>
+        <!--列表展示部分-->
+        <ListView ItemsSource="{Binding ProjectCollection}" Grid.Row="2" >
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="编号"  DisplayMemberBinding="{Binding Id}"    Width="80" />
+                    <GridViewColumn Header="项目名称" DisplayMemberBinding="{Binding Name}" Width="200"/>
+                    <GridViewColumn Header="合同编号"  DisplayMemberBinding="{Binding ContractNumber}" Width="150"/>
+                    <GridViewColumn Header="开始时间"  DisplayMemberBinding="{Binding BeginTime, StringFormat={}{0:yyyy-MM-dd}}" Width="120"/>
+                    <GridViewColumn Header="状态" DisplayMemberBinding="{Binding Status, Converter={StaticResource PrjStateChCvt}}" Width="100"/>
+                    <GridViewColumn Header="操作"  Width="240">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="查看" Style="{StaticResource btnToolBarStyle}" Margin="5,0,5,0" 
+                                            Width="40" Height="24"/>
+                                    <Button Content="审核" Style="{StaticResource btnToolBarStyle}" 
+                                            Margin="0,0,5,0" Width="40" Height="24"/>
+                                    <Button Content="修改" Style="{StaticResource btnToolBarStyle}"  Margin="0,0,5,0" Width="40" Height="24"/>
+                                    <Button Content="桥梁管理" Style="{StaticResource btnToolBarStyle}"  Margin="0,0,5,0" Width="80" Height="24"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3">
+            <Grid>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Name="btnFirst" Text="首页" IsEnabled="False" Style="{StaticResource PageTextBlock2}" />
+                <TextBlock Grid.Column="1" Name="btnPrev" Text="上一页" IsEnabled="False" Style="{StaticResource PageTextBlock2}" />
+                <Grid Grid.Column="2" Name="grid" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <TextBlock Grid.Column="3" x:Name="btnNext" Text="下一页" IsEnabled="False" Style="{StaticResource PageTextBlock2}" />
+                <TextBlock Grid.Column="4" x:Name="btnLast" Text="未页" IsEnabled="False" Style="{StaticResource PageTextBlock2}"/>
+                <TextBox Grid.Column="5" x:Name="pageGo" MaxLength="6" IsReadOnly="True" Style="{StaticResource PageTextBox}" />
+                <Button Grid.Column="5" x:Name="btnGo" Content="GO" IsEnabled="False" Style="{StaticResource PageButton}" Grid.ColumnSpan="2" Margin="48,0,0,0" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

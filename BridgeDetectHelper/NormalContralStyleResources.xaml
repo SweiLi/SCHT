@@ -1,0 +1,162 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BridgeDetectHelper">
+    <Style  x:Key="NoteLabel"  TargetType="{x:Type Label}" >
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="10,0,10,5" />
+        <Setter Property="Height" Value=" 30" />
+    </Style>
+    <Style  x:Key="NormalTextBox"  TargetType="{x:Type TextBox}" >
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--首页上一页等-->
+    <Style x:Key="PageTextBlock2" TargetType="{x:Type TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--中间页数-->
+    <Style x:Key="PageTextBlock3" TargetType="{x:Type TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PageTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Style.Triggers>
+            <Trigger Property="IsReadOnly" Value="True">
+                <Setter Property="Background" Value="#FFCCCCCC" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PageButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+    <!--GridView-->
+    <ControlTemplate x:Key="tmpForThumb" TargetType="{x:Type Thumb}">
+        <Border>
+            <Rectangle Width="1" Name="rec">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0.3" EndPoint="1,1">
+                        <GradientStop Color="#CCCEDB" Offset="0.22"/>
+                        <GradientStop Color="#CCCEDB" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="rec" Property="Fill" Value="LightGreen"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Height" Value="30 " />
+        <Setter Property="FontSize" Value=" 16" />
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                    <Grid Name="g">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#F5F5F5" Offset="0.3"/>
+                                <GradientStop Color="#EEEEF2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Border Name="bd" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Margin="5,4,1,3"  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Border>
+                        <Thumb Name="PART_HeaderGripper" Template="{StaticResource tmpForThumb}" HorizontalAlignment="Right" Margin="0,0,-1,0"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="g" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#F5F5F5" Offset="1"/>
+                                        <GradientStop Color="#EEEEF2" Offset="0.3"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type ListViewItem}">
+        <Style.Setters>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="bd"  
+                                BorderThickness="1"  
+                                Padding="{TemplateBinding Padding}"  
+                                SnapsToDevicePixels="True">
+                            <GridViewRowPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                                                  Margin="3"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Trigger.Setters>
+                                    <Setter TargetName="bd" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0.5,0.22" EndPoint="0.5,1">
+                                                <GradientStop Color="#EEEEF2" Offset="0.31"/>
+                                                <GradientStop Color="#F5F5F5" Offset="0.88"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger.Setters>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+   
+    
+    
+</ResourceDictionary>

@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BDH.Manage;
+
+namespace BDH.IView
+{
+    public interface IAddProjectView : IViewBase
+    {
+        Project NewProject { get; set; }
+        void SavedClose();
+    }
+}

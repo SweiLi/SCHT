@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0921189D-501D-4AC3-B2FC-EF883F079B3A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BridgeDetectHelper</RootNamespace>
+    <AssemblyName>BridgeDetectHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Report_128.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddBridgeWindow.xaml.cs">
+      <DependentUpon>AddBridgeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddProjectWindow.xaml.cs">
+      <DependentUpon>AddProjectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arrow.cs" />
+    <Compile Include="BdhPictureEditor.xaml.cs">
+      <DependentUpon>BdhPictureEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeMgrMainPage.xaml.cs">
+      <DependentUpon>BridgeMgrMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeQueryParamConverter.cs" />
+    <Compile Include="BridgeWindow.xaml.cs">
+      <DependentUpon>BridgeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DesignerItemDecorator.cs" />
+    <Compile Include="DiseaseCountPage.xaml.cs">
+      <DependentUpon>DiseaseCountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MoveThumb.cs" />
+    <Compile Include="MyWindowTitleBar.xaml.cs">
+      <DependentUpon>MyWindowTitleBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewUserWindow.xaml.cs">
+      <DependentUpon>NewUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoExistsNumImageWindow.xaml.cs">
+      <DependentUpon>NoExistsNumImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHelper.cs" />
+    <Compile Include="PicsMgrMainPage.xaml.cs">
+      <DependentUpon>PicsMgrMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PictureEditWindow.xaml.cs">
+      <DependentUpon>PictureEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResizeRotateAdorner.cs" />
+    <Compile Include="Controls\ResizeRotateChrome.cs" />
+    <Compile Include="Controls\ResizeThumb.cs" />
+    <Compile Include="Controls\RotateThumb.cs" />
+    <Compile Include="Controls\SizeAdorner.cs" />
+    <Compile Include="Controls\SizeChrome.cs" />
+    <Compile Include="PictureLayoutEditWindow.xaml.cs">
+      <DependentUpon>PictureLayoutEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PictureLayout\AbstractPictureLayout.cs" />
+    <Compile Include="PictureLayout\IPictureLayout.cs" />
+    <Compile Include="PictureLayout\PictureLayoutFactory.cs" />
+    <Compile Include="PictureLayout\PictureLayoutFiveVertical.cs" />
+    <Compile Include="PictureLayout\PictureLayoutFourSquare.cs" />
+    <Compile Include="PictureLayout\PictureLayoutJustOne.cs" />
+    <Compile Include="PictureLayout\PictureLayoutLeftDown.cs" />
+    <Compile Include="PictureLayout\PictureLayoutLeftOneRightTwo.cs" />
+    <Compile Include="PictureLayout\PictureLayoutLeftRight.cs" />
+    <Compile Include="PictureLayout\PictureLayoutLeftUp.cs" />
+    <Compile Include="PictureLayout\PictureLayoutRightDown.cs" />
+    <Compile Include="PictureLayout\PictureLayoutRightUp.cs" />
+    <Compile Include="PictureLayout\PictureLayoutRightUpTwo.cs" />
+    <Compile Include="PictureLayout\PictureLayoutThreeHorizontal.cs" />
+    <Compile Include="PictureLayout\PictureLayoutThreeVertical.cs" />
+    <Compile Include="PictureLayout\PictureLayoutUpDown.cs" />
+    <Compile Include="PictureLayout\PictureLayoutUpOneDownThree.cs" />
+    <Compile Include="PictureLayout\PictureLayoutUpOneDownTwo.cs" />
+    <Compile Include="ProjectMgrMainPage.xaml.cs">
+      <DependentUpon>ProjectMgrMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectQueryParamConverter.cs" />
+    <Compile Include="ProjectStateChineseConverter.cs" />
+    <Compile Include="SystemMgrPage.xaml.cs">
+      <DependentUpon>SystemMgrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserStateChineseConverter.cs" />
+    <Compile Include="XamlDemo.xaml.cs">
+      <DependentUpon>XamlDemo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddBridgeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BdhPictureEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BridgeMgrMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BridgeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ButtonStyleResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComboBoxStyleResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DesignerItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiseaseCountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NormalContralStyleResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MyWindowTitleBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NoExistsNumImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OfficeTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PicsMgrMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PictureEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ResizeRotateChrome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SizeChrome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PictureLayoutEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProjectMgrMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemMgrPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XamlDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PopupMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDH.IView\BDH.IView.csproj">
+      <Project>{75f4e7f7-23af-44f7-99d9-503364f17fc7}</Project>
+      <Name>BDH.IView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BDH.Manage\BDH.Manage.csproj">
+      <Project>{916a00d2-c514-47fd-8e90-2535c0baa2f0}</Project>
+      <Name>BDH.Manage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BDH.ViewModel\BDH.ViewModel.csproj">
+      <Project>{00712868-d3b6-4948-ab4a-3788f378a560}</Project>
+      <Name>BDH.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MdHelper\BDH.MdHelper.csproj">
+      <Project>{83963e5f-0fda-4ba7-abec-55e7aa26cef0}</Project>
+      <Name>BDH.MdHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\defaultuser_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Report_128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Report_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Circle_32.png" />
+    <Resource Include="Icons\Project_48.png" />
+    <Resource Include="Icons\Rectangle_32.png" />
+    <Resource Include="Icons\Text_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Merge_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PicLayoutIcon\0.png" />
+    <Resource Include="PicLayoutIcon\1.png" />
+    <Resource Include="PicLayoutIcon\10.png" />
+    <Resource Include="PicLayoutIcon\11.png" />
+    <Resource Include="PicLayoutIcon\12.png" />
+    <Resource Include="PicLayoutIcon\13.png" />
+    <Resource Include="PicLayoutIcon\14.png" />
+    <Resource Include="PicLayoutIcon\2.png" />
+    <Resource Include="PicLayoutIcon\3.png" />
+    <Resource Include="PicLayoutIcon\4.png" />
+    <Resource Include="PicLayoutIcon\5.png" />
+    <Resource Include="PicLayoutIcon\6.png" />
+    <Resource Include="PicLayoutIcon\7.png" />
+    <Resource Include="PicLayoutIcon\8.png" />
+    <Resource Include="PicLayoutIcon\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PicToolIcons\0.png" />
+    <Resource Include="PicToolIcons\1.png" />
+    <Resource Include="PicToolIcons\2.png" />
+    <Resource Include="PicToolIcons\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bridge\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\bridge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pic_add.png" />
+    <Resource Include="Icons\pic_edit.png" />
+    <Resource Include="Icons\pic_summary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pic_joint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PicToolIcons\Cut_48.png" />
+    <Resource Include="PicToolIcons\Render_48.png" />
+    <Resource Include="PicToolIcons\Rotate_Left_48.png" />
+    <Resource Include="PicToolIcons\Rotate_Right_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="default.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
