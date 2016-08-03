@@ -69,6 +69,7 @@
     <Compile Include="project\BriTypeConfig.cs" />
     <Compile Include="project\BriWholeAsse.cs" />
     <Compile Include="SysClassExtension.cs" />
+    <Compile Include="systemConfig\DetectionDeductManager.cs" />
     <Compile Include="tools\Cableforce.cs" />
     <Compile Include="tools\Chloridion.cs" />
     <Compile Include="document\ColConMedia.cs" />
