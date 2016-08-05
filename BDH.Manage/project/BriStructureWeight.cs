@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     ///桥梁结构权重信息
     /// </summary>
-    class BriStructureWeight
+   public  class BriStructureWeight
     {
         //结构权重ID
         public string StructureWeightId { get; set; }

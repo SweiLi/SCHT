@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁类型
     /// </summary>
-    class BriTypeConfig
+  public   class BriTypeConfig
     {
         public string TypeId { get; set; }
         public string MpConfigId { get; set; }

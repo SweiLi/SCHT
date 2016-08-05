@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁档案资料信息
     /// </summary>
-    class BridgeDazl
+  public   class BridgeDazl
     {
         public string BriDazlId { get; set; }
         public string BriId { get; set; }

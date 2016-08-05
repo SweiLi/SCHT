@@ -40,85 +40,35 @@
             <TextBlock  Text="{Binding BridgeId}" MinWidth="240" Height="30" Grid.Row="0"   Grid.Column="1" HorizontalAlignment="Left" FontSize="18" />
             <TextBox Text="{Binding BridgePile}" MinWidth="240" Height="30" Grid.Row="1"   Grid.Column="3" HorizontalAlignment="Left" FontSize="18" />
             <TextBox Text="{Binding BridgeName}" MinWidth="240" Height="30" Grid.Row="1"   Grid.Column="1" HorizontalAlignment="Left" FontSize="18"/>
-            <ComboBox ItemsSource="{Binding BridgeTypeCollection}" DisplayMemberPath="Name" 
-                      SelectedItem="{Binding BridgeType}"
-                      Width="200" Height="30" Grid.Row="0"  Grid.Column="3" HorizontalAlignment="Left" />
+            <ComboBox Name="cbb" Width="200" Height="30" Grid.Row="0"  Grid.Column="3" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged" >
+                <ComboBoxItem>混凝土梁式桥</ComboBoxItem>
+                <ComboBoxItem>斜拉桥</ComboBoxItem>
+                <ComboBoxItem>悬索桥</ComboBoxItem>
+                <ComboBoxItem>钢梁桥</ComboBoxItem>
+                <ComboBoxItem>钢拱桥</ComboBoxItem>
+                <ComboBoxItem>圬工拱桥</ComboBoxItem>
+                <ComboBoxItem>钢-混凝土组合拱桥</ComboBoxItem>
+                <ComboBoxItem>桁架拱桥</ComboBoxItem>
+                <ComboBoxItem>钢架拱桥</ComboBoxItem>
+                <ComboBoxItem>双曲拱桥</ComboBoxItem>
+                <ComboBoxItem>箱形拱桥</ComboBoxItem>
+                <ComboBoxItem>板拱桥</ComboBoxItem>
+            </ComboBox>
         </Grid>
         <Border  Grid.Row="2" BorderThickness="0,1,0,1" BorderBrush="#038387"  Margin="0,15,0,0">
-            <StackPanel  Orientation="Vertical" >
+            <WrapPanel>
+                <WrapPanel Name="MystackPanel" ItemWidth="499">
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    <Label Content="翼墙、耳墙："  Width="150" HorizontalAlignment="Right" />
-                    <CheckBox Content="L0" FontSize="18" Height="32"  Margin="10,5,5,5"></CheckBox>
-                    <CheckBox Content="L1" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <CheckBox Content="R0" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <CheckBox Content="R1" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <Label Content=" 桥台（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="1000" Background="#FFFFFF"  Height="40" >
-                    <Label Content="锥坡："  Width="150" HorizontalAlignment="Right" />
-                    <CheckBox Content="L0" FontSize="18" Height="32"  Margin="10,5,5,5"></CheckBox>
-                    <CheckBox Content="L1" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <CheckBox Content="R0" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <CheckBox Content="R1" FontSize="18" Height="32"  Margin="5"></CheckBox>
-                    <Label Content=" 护坡（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    <Label Content="河床（个）："  Width="150" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                    <Label Content="调治构造物（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
-               
-                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" Width="1000" Background="#FFFFFF"  Height="40" >
-                    <Label Content="支座（个）："  Width="150" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                    <Label Content="肋拱（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    <Label Content="立柱（个）："  Width="150" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                    <Label Content="墩台基础（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
+                </WrapPanel>
+                <WrapPanel Name="MyWrapPanel" ItemWidth="1000" Background="#eeeeee" ItemHeight="40">
+
+                </WrapPanel>
+                <TextBlock Name="MyTextBlock" Background="#dddddd" FontSize="18"  Width="1000" Height="40">
+
+                </TextBlock>
                 
-                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" Width="1000" Background="#ffffff"  Height="40" >
-                    <Label Content=" T梁（个）："  Width="150" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                    <Label Content=" 横向连接系（个）："  Width="250" HorizontalAlignment="Right" />
-                    <TextBox   Height="30"    Margin="20,0,0,0" FontSize="16" Width="180"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    <Label Content="桥墩："  Width="150" HorizontalAlignment="Right" />
-                    <Label Content="从"  Width="30" HorizontalAlignment="Right" />
-                    <TextBox   Height="30" FontSize="16" Width="30"/>
-                    <Label Content="墩,到"  Width="50" HorizontalAlignment="Left"  />
-                    <TextBox   Height="30" FontSize="16" Width="30"/>
-                    <Label Content="墩,每墩"  Width="70" HorizontalAlignment="Left"  />
-                    <TextBox   Height="30" FontSize="16" Width="30"/>
-                    <Label Content="墩身"  Width="50" HorizontalAlignment="Left" />
-                    <Button Style="{StaticResource btnFuncStyle}" Margin="10,0,0,0" Content=" 添加 "/>
-                    <Button Style="{StaticResource btnFuncStyle}" Margin="10,0,0,0" Content=" 撤销 "/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="1000" Background="#FFFFFF"  Height="40" >
-                   
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="1000" Background="#FFFFFF"  Height="40" >
-                   
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Width="1000" Background="#eeeeee"  Height="40" >
-                    
-                </StackPanel>
-
-            </StackPanel>
-
-
+                
+            </WrapPanel>
         </Border>
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="5" Height="60" >
             <Button Command="{Binding SaveCommand}" IsDefault="True" Content="保存" Width="100" x:Name="btnAddProject"  Style="{StaticResource btnConfirmStyle}" />

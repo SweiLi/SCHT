@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁图片表
     /// </summary>
-    class BridgePic
+   public  class BridgePic
     {
         public string BriPicid { get; set; }
         public string BriId { get; set; }

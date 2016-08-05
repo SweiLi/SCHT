@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁结构数据
     /// </summary>
-    class BridgeJgjs
+   public  class BridgeJgjs
     {
         public string BriJgjsId { get; set; }
         public string BriId { get; set; }

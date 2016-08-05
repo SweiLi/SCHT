@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁组件病害信息表
     /// </summary>
-    class BriComDisInfo
+    public class BriComDisInfo
     {
         public string BcdiId { get; set; }
         public string BcdiBridgetype { get; set; }
