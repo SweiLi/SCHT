@@ -31,11 +31,6 @@ namespace BridgeDetectHelper
             this.m_PopupMsg = new PopupMessage();
 
             this.DataContext = new PictureEditViewModel(this);
-
-            foreach (Control child in DesignerCanvas.Children)
-            {
-                Selector.SetIsSelected(child, true);
-            }
         }
 
         private IPopupMessage m_PopupMsg;
@@ -68,40 +63,25 @@ namespace BridgeDetectHelper
             img_src.BeginInit();
             img_src.StreamSource = ms;
             img_src.EndInit();
-
-            DesignerCanvas.Background = new ImageBrush(img_src);
         }
 
         private void chkSelect_Click(object sender, RoutedEventArgs e)
         {
-            if (chkSelect.IsChecked.Value)
-            {
-                foreach (Control child in DesignerCanvas.Children)
-                {
-                    Selector.SetIsSelected(child, true);
-                }
-            }
-            else
-            {
-                foreach (Control child in DesignerCanvas.Children)
-                {
-                    Selector.SetIsSelected(child, false);
-                }
-            }
+            
         }
 
         public void SaveToFile()
         {
             string file_path = AppDomain.CurrentDomain.BaseDirectory + "ss.png";
 
-            FileStream fs = new FileStream(file_path, FileMode.Create);
-            RenderTargetBitmap bmp = new RenderTargetBitmap((int)DesignerCanvas.ActualWidth,
-                (int)DesignerCanvas.ActualHeight, 96d, 96d, PixelFormats.Pbgra32);
-            bmp.Render(DesignerCanvas);
-            BitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bmp));
-            encoder.Save(fs);
-            fs.Close();
+            //FileStream fs = new FileStream(file_path, FileMode.Create);
+            //RenderTargetBitmap bmp = new RenderTargetBitmap((int)DesignerCanvas.ActualWidth,
+            //    (int)DesignerCanvas.ActualHeight, 96d, 96d, PixelFormats.Pbgra32);
+            //bmp.Render(DesignerCanvas);
+            //BitmapEncoder encoder = new PngBitmapEncoder();
+            //encoder.Frames.Add(BitmapFrame.Create(bmp));
+            //encoder.Save(fs);
+            //fs.Close();
         }
 
         private void btnMerge_Click(object sender, RoutedEventArgs e)
@@ -126,9 +106,9 @@ namespace BridgeDetectHelper
             Ellipse elli = new Ellipse() { IsHitTestVisible = false, StrokeThickness = 1, Stroke = Brushes.Red };
             cc.Content = elli;
 
-            if (chkSelect.IsChecked.Value) Selector.SetIsSelected(cc, true);
+            //if (chkSelect.IsChecked.Value) Selector.SetIsSelected(cc, true);
 
-            DesignerCanvas.Children.Add(cc);
+            //DesignerCanvas.Children.Add(cc);
         }
     }
 }

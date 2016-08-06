@@ -49,6 +49,7 @@
     <Compile Include="IAddProjectView.cs" />
     <Compile Include="IBridgeMgrView.cs" />
     <Compile Include="IDiseaseCountView.cs" />
+    <Compile Include="IPictureMgrView.cs" />
     <Compile Include="IProjectMgrView.cs" />
     <Compile Include="IMainView.cs" />
     <Compile Include="INewUserView.cs" />
