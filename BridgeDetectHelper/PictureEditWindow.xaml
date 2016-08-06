@@ -58,7 +58,7 @@
             </DockPanel>
 
             <Grid>
-                <Border x:Name="bdrPicLay" BorderBrush="Gray" BorderThickness="1"/>
+                <Border x:Name="bdrPic" BorderBrush="Gray" BorderThickness="1"/>
                 <StackPanel x:Name="spJustOneTool" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" 
                                     Width="200" Height="32">
                     <StackPanel.Resources>
@@ -73,7 +73,7 @@
                             <Setter Property="Height" Value="24"/>
                         </Style>
                     </StackPanel.Resources>
-                    <Button>
+                    <Button x:Name="btnLeftRotate" Click="btnLeftRotate_Click">
                         <Image Source="PicToolIcons/Rotate_Left_48.png"/>
                     </Button>
                     <Button>
