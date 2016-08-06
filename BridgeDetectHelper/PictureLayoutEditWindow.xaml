@@ -97,7 +97,7 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="bdrPicLay" BorderBrush="Gray" BorderThickness="1,0,1,1"/>
+                <Border x:Name="bdrPicLay" BorderBrush="Gray" BorderThickness="1,0,1,1" Grid.Row="1"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="2">
                     <Label Content="请输入图片编号：" VerticalContentAlignment="Center"/>

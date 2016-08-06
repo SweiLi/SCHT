@@ -26,5 +26,16 @@ namespace BDH.ViewModel
                 });
             }
         }
+
+        public ICommand ShowPicLayoutCommand
+        {
+            get
+            {
+                return new RelayCommand((param) =>
+                {
+                    this.m_View.ShowPicLayoutWindow();
+                });
+            }
+        }
     }
 }

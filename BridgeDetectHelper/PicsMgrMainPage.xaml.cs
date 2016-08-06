@@ -46,5 +46,12 @@ namespace BridgeDetectHelper
             win.Owner = Window.GetWindow(this);
             win.ShowDialog();
         }
+
+        public void ShowPicLayoutWindow()
+        {
+            var win = new PictureLayoutEditWindow();
+            win.Owner = Window.GetWindow(this);
+            win.ShowDialog();
+        }
     }
 }

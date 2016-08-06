@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BridgeDetectHelper"
         mc:Ignorable="d" WindowStartupLocation="CenterOwner"
         Icon="Report_128.ico" WindowStyle="None" AllowsTransparency="True" BorderBrush="#1B8C90" 
-        BorderThickness="1" Title="图片编辑" Height="500" Width="800">
+        BorderThickness="1" Title="照片编辑" Height="500" Width="800">
     <Window.Resources>
     </Window.Resources>
     <Grid>

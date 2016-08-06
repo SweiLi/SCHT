@@ -9,5 +9,6 @@ namespace BDH.IView
     public interface IPictureMgrView : IViewBase
     {
         void ShowPicEditWindow();
+        void ShowPicLayoutWindow();
     }
 }
