@@ -29,6 +29,7 @@ namespace BridgeDetectHelper
         protected bool m_IsMoving = false;
         protected bool m_CanFreeMove = false;
         protected Point m_LastPoint;
+        private bool m_IsFreezed = false;
 
         public PictureEditWindow()
         {
@@ -119,7 +120,7 @@ namespace BridgeDetectHelper
             img.Height = img_src.PixelHeight;
             img.RenderTransform = groupform as Transform;
             //img.MouseWheel += Img_MouseWheel;
-            img.Tag = new Size(img_src.PixelWidth, img_src.PixelHeight);
+            img.Tag = new Point(0, 0);
 
             //this.m_ImgList.Add(img);
 
@@ -147,6 +148,8 @@ namespace BridgeDetectHelper
 
         protected void img_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (this.m_IsFreezed) return;
+
             if (e.ChangedButton == MouseButton.Left)
             {
                 Image img = sender as Image;
@@ -164,6 +167,8 @@ namespace BridgeDetectHelper
 
         private void Cc_MouseMove(object sender, MouseEventArgs e)
         {
+            if (this.m_IsFreezed) return;
+
             var cc = sender as ContentControl;
             if (cc == null) return;
 
@@ -206,6 +211,7 @@ namespace BridgeDetectHelper
                     transform.X -= this.m_LastPoint.X - mp.X;
             }
 
+            img.Tag = new Point(transform.X, transform.Y);
             this.m_LastPoint = mp;
         }
 
@@ -216,10 +222,51 @@ namespace BridgeDetectHelper
 
             cc.Cursor = Cursors.Arrow;
             cc.ReleaseMouseCapture();
+
+            var cv = cc.Parent as Canvas;
+            var img = cc.Content as Image;
+            var p = (Point)img.Tag;
+            var group = img.RenderTransform as TransformGroup;
+            var scaleform = group.Children[0] as ScaleTransform;
+            var transform = group.Children[1] as TranslateTransform;
+            var img_p = e.GetPosition(img);
+            var img_point = new Point(img_p.X * scaleform.ScaleX, img_p.Y * scaleform.ScaleY);
+            var cv_point = e.GetPosition(cv);
+
+            double img_width = img.Width * scaleform.ScaleX;
+            double img_height = img.Height * scaleform.ScaleY;
+
+            double offset_top = cv_point.Y - img_point.Y;
+            double offset_btm = (cv.ActualHeight - cv_point.Y) - (img_height - img_point.Y);
+            if (img_height < cv.ActualHeight)
+            {
+                if (offset_top < 0 && offset_btm > 0) transform.Y -= offset_top;
+                else if (offset_top > 0 && offset_btm < 0) transform.Y += offset_btm;
+            }
+            else
+            {
+                if (offset_top < 0 && offset_btm > 0) transform.Y += offset_btm;
+                else if (offset_top > 0 && offset_btm < 0) transform.Y -= offset_top;
+            }
+
+            double offset_left = cv_point.X - img_point.X;
+            double offset_right = (cv.ActualWidth - cv_point.X) - (img_width - img_point.X);
+            if (img_width < cv.ActualWidth)
+            {
+                if (offset_left < 0 && offset_right > 0) transform.X -= offset_left;
+                else if (offset_left > 0 && offset_right < 0) transform.X += offset_right;
+            }
+            else
+            {
+                if (offset_left < 0 && offset_right > 0) transform.X += offset_right;
+                else if (offset_left > 0 && offset_right < 0) transform.X -= offset_left;
+            }
         }
 
         private void Cc_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (this.m_IsFreezed) return;
+
             var cc = sender as ContentControl;
             if (cc == null) return;
 
@@ -282,7 +329,7 @@ namespace BridgeDetectHelper
             }
         }
 
-        private void btnLeftRotate_Click(object sender, RoutedEventArgs e)
+        private void RotateImage(double angle)
         {
             var cv = bdrPic.Child as Canvas;
             var cc = cv.Children[0] as ContentControl;
@@ -294,10 +341,70 @@ namespace BridgeDetectHelper
             var rotateform = group.Children[2] as RotateTransform;
             rotateform.CenterX = cv.ActualWidth / 2;
             rotateform.CenterY = cv.ActualHeight / 2;
-            rotateform.Angle += -90;
-            //rotateform = new RotateTransform(-90);
+            rotateform.Angle += angle;
+        }
 
-            img.RenderTransform = group;
+        private void btnLeftRotate_Click(object sender, RoutedEventArgs e)
+        {
+            this.RotateImage(-90);
+        }
+
+        private void btnRightRotate_Click(object sender, RoutedEventArgs e)
+        {
+            this.RotateImage(90);
+        }
+
+        private CroppingAdorner m_CropAdr;
+        private FrameworkElement m_FrEl;
+        private Brush m_BrOriginal;
+
+        private void RemoveCropFromCur()
+        {
+            AdornerLayer adr = AdornerLayer.GetAdornerLayer(this.m_FrEl);
+            adr.Remove(this.m_CropAdr);
+        }
+
+        private void AddCropToElement(FrameworkElement fel)
+        {
+            if (this.m_FrEl != null) this.RemoveCropFromCur();
+
+            Rect rct = new Rect(fel.ActualWidth * 0.2, fel.ActualHeight * 0.2,
+                fel.ActualWidth * 0.6, fel.ActualHeight * 0.6);
+            AdornerLayer adr = AdornerLayer.GetAdornerLayer(fel);
+            this.m_CropAdr = new CroppingAdorner(fel, rct);
+            adr.Add(this.m_CropAdr);
+            this.m_FrEl = fel;
+            this.SetClipColorGrey();
+            this.m_CropAdr.MouseMove += M_CropAdr_MouseMove;
+        }
+
+        private void M_CropAdr_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Canvas.SetTop(this.m_CropAdr, 0);
+                Canvas.SetLeft(this.m_CropAdr, 0);
+            }
+        }
+
+        private void SetClipColorGrey()
+        {
+            if (this.m_CropAdr != null)
+            {
+                Color clr = Colors.Gray;
+                clr.A = 200;
+                this.m_CropAdr.Fill = new SolidColorBrush(clr);
+            }
+        }
+        private void btnCropImg_Click(object sender, RoutedEventArgs e)
+        {
+            var cv = bdrPic.Child as Canvas;
+            var cc = cv.Children[0] as ContentControl;
+            var img = cc.Content as Image;
+
+            this.AddCropToElement(cv);
+            this.m_BrOriginal = this.m_CropAdr.Fill;
+            this.m_IsFreezed = true;
         }
     }
 }

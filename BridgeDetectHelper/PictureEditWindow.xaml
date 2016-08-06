@@ -54,7 +54,8 @@
                     </StackPanel>
                     <Label Content="病害描述："/>
                 </StackPanel>
-                <TextBox BorderBrush="DarkGray" BorderThickness="1" Template="{StaticResource txtCornerStyle}" Margin="5,5,5,0"/>
+                <TextBox BorderBrush="DarkGray" BorderThickness="1" Template="{StaticResource txtCornerStyle}" 
+                         Margin="5,5,5,0" MaxHeight="300"/>
             </DockPanel>
 
             <Grid>
@@ -76,10 +77,10 @@
                     <Button x:Name="btnLeftRotate" Click="btnLeftRotate_Click">
                         <Image Source="PicToolIcons/Rotate_Left_48.png"/>
                     </Button>
-                    <Button>
+                    <Button x:Name="btnRightRotate" Click="btnRightRotate_Click">
                         <Image Source="PicToolIcons/Rotate_Right_48.png"/>
                     </Button>
-                    <Button>
+                    <Button x:Name="btnCropImg" Click="btnCropImg_Click">
                         <Image Source="PicToolIcons/Cut_48.png" Width="16" Height="16"/>
                     </Button>
                     <Button>
