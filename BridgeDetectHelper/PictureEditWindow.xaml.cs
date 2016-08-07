@@ -406,5 +406,48 @@ namespace BridgeDetectHelper
             this.m_BrOriginal = this.m_CropAdr.Fill;
             this.m_IsFreezed = true;
         }
+
+        WriteableBitmap SetBrightness( BitmapSource bs, int brightness)
+        {
+            brightness = brightness * 255 / 100;
+
+            WriteableBitmap wb = new WriteableBitmap(bs);
+            uint[] PixelData = new uint[wb.PixelWidth * wb.PixelHeight];
+            wb.CopyPixels(PixelData, 4 * wb.PixelWidth, 0);
+            for (uint y = 0; y < wb.PixelHeight; y++)
+            {
+                for (uint x = 0; x < wb.PixelWidth; x++)
+                {
+                    uint pixel = PixelData[y * wb.PixelWidth + x];
+                    byte[] dd = BitConverter.GetBytes(pixel);
+                    int B = (int)dd[0] + brightness;
+                    int G = (int)dd[1] + brightness;
+                    int R = (int)dd[2] + brightness;
+                    if (B < 0) B = 0;
+                    if (B > 255) B = 255;
+                    if (G < 0) G = 0;
+                    if (G > 255) G = 255;
+                    if (R < 0) R = 0;
+                    if (R > 255) R = 255;
+                    dd[0] = (byte)B;
+                    dd[1] = (byte)G;
+                    dd[2] = (byte)R;
+                    PixelData[y * wb.PixelWidth + x] = BitConverter.ToUInt32(dd, 0);
+                }
+            }
+            wb.WritePixels(new Int32Rect(0, 0, wb.PixelWidth, wb.PixelHeight), PixelData, 4 * wb.PixelWidth, 0);
+
+            return wb;
+        }
+
+        private void btnBrightImg_Click(object sender, RoutedEventArgs e)
+        {
+            var cv = bdrPic.Child as Canvas;
+            var cc = cv.Children[0] as ContentControl;
+            var img = cc.Content as Image;
+
+            var wb = this.SetBrightness(img.Source as BitmapSource, 20);
+            img.Source = wb;
+        }
     }
 }
