@@ -107,6 +107,9 @@
       <DependentUpon>DiseaseCountPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MoveThumb.cs" />
+    <Compile Include="DiseaseSummaryWindow.xaml.cs">
+      <DependentUpon>DiseaseSummaryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyWindowTitleBar.xaml.cs">
       <DependentUpon>MyWindowTitleBar.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DiseaseCountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiseaseSummaryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
