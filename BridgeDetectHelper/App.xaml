@@ -24,8 +24,8 @@
                     <ControlTemplate x:Key="txtCornerStyle" TargetType="TextBox">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}" 
-                            CornerRadius="15" SnapsToDevicePixels="True">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="10,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            CornerRadius="5" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </ControlTemplate>
                     <ControlTemplate x:Key="pwdCornerStyle" TargetType="PasswordBox">

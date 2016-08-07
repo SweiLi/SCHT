@@ -103,6 +103,8 @@
       <DependentUpon>BridgeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DesignerItemDecorator.cs" />
+    <Compile Include="CroppingAdorner.cs" />
+    <Compile Include="CropThumb.cs" />
     <Compile Include="DiseaseCountPage.xaml.cs">
       <DependentUpon>DiseaseCountPage.xaml</DependentUpon>
     </Compile>
@@ -158,6 +160,7 @@
     </Compile>
     <Compile Include="ProjectQueryParamConverter.cs" />
     <Compile Include="ProjectStateChineseConverter.cs" />
+    <Compile Include="PuncturedRect.cs" />
     <Compile Include="SystemMgrPage.xaml.cs">
       <DependentUpon>SystemMgrPage.xaml</DependentUpon>
     </Compile>

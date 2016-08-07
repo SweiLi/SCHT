@@ -50,6 +50,7 @@
     <Compile Include="AsyncObservableCollection.cs" />
     <Compile Include="BridgeMgrViewModel.cs" />
     <Compile Include="DiseaseCountViewModel.cs" />
+    <Compile Include="PictureMgrViewModel.cs" />
     <Compile Include="ProjectMgrViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="NewUserViewModel.cs" />
