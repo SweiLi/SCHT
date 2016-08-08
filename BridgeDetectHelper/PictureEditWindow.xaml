@@ -83,7 +83,7 @@
                     <Button x:Name="btnCropImg" Click="btnCropImg_Click">
                         <Image Source="PicToolIcons/Cut_48.png" Width="16" Height="16"/>
                     </Button>
-                    <Button>
+                    <Button x:Name="btnBrightImg" Click="btnBrightImg_Click">
                         <Image Source="PicToolIcons/Render_48.png" Width="16" Height="16"/>
                     </Button>
                 </StackPanel>
