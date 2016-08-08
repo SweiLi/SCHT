@@ -41,12 +41,12 @@
                                                 <DoubleAnimation 
                                                     Storyboard.TargetName="hoverShape" Storyboard.TargetProperty="Opacity" 
                                                     To="0" Duration="0:0:.1"/>
-                                                <!--
+                                                
                                                 <ColorAnimation 
                                                     Storyboard.TargetName="buttonText" 
                                                     Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
                                                     To="White" Duration="0:0:.1" />
-                                                -->
+                                                
                                             </Storyboard>
                                         </VisualState>
                                         <VisualState Name="Unselected">
@@ -70,7 +70,7 @@
                                         SnapsToDevicePixels="True" 
                                         BorderThickness="0,0,1,0" 
                                         BorderBrush="LightGray">
-                                    <Border BorderBrush="#FFA1B7EA"
+                                    <Border BorderBrush="#038387"
                                             BorderThickness="0,1" 
                                             Background="#FFE5EEF9" 
                                             Height="60" 
@@ -82,7 +82,7 @@
                                 <Border 
                                     Name="buttonShape" 
                                     Opacity="0" 
-                                    BorderBrush="#FF0343A6" 
+                                    BorderBrush="#038387" 
                                     BorderThickness="0,2" 
                                     Height="60"
                                     SnapsToDevicePixels="True">
@@ -93,8 +93,8 @@
                                         Height="60">
                                         <Path.Fill>
                                             <RadialGradientBrush GradientOrigin="0.2,0.5" RadiusX="0.8" RadiusY="0.8">
-                                                <GradientStop Color="#FF5FA3F6" Offset="0" />
-                                                <GradientStop Color="#FF0C55B9" Offset="1" />
+                                                <GradientStop Color="#038387" Offset="0" />
+                                                <GradientStop Color="#038387" Offset="1" />
                                             </RadialGradientBrush>
                                         </Path.Fill>
                                     </Path>

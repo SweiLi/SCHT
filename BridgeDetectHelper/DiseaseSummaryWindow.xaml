@@ -7,22 +7,66 @@
         mc:Ignorable="d" WindowStartupLocation="CenterOwner" WindowStyle="None" AllowsTransparency="True" BorderBrush="#1B8C90" 
         BorderThickness="1" Title="DiseaseSummaryWindow" Height="600" Width="1000">
     <Window.Resources>
-        <Style TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="OfficeTab.xaml"/>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <local:MyWindowTitleBar Grid.Row="0"/>
         <Grid Grid.Row="1">
-
-
+            <TabControl  Margin="5" Template="{StaticResource OfficeTabControl}">
+                <TabItem FontSize="18" >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Icons/pic_open.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="文件夹导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="5">导入说明</TextBlock>
+                        <TextBlock Margin="5">
+                        点击文件夹打开按钮<LineBreak />
+                        根据提示的文件夹路径，把图片导入到当前文件夹
+                        </TextBlock>
+                        <TextBlock Margin="5" Foreground="#038387">
+                       请将项目放到：D:/Htbridge/HT4372857483
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem>
+                <TabItem  Background="#038387" FontSize="18" Height="60">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="Icons/pic_Excel.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="Excel导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel/>
+                </TabItem>
+                <TabItem Background="#038387" FontSize="18" Height="60">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Icons/pic_Handle.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="手动导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel/>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Grid>
 </Window>
