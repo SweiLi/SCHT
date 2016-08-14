@@ -106,6 +106,7 @@ namespace BridgeDetectHelper
                 pthgInt.Figures.Add(pthfInt);
 
                 CombinedGeometry cmbg = new CombinedGeometry(GeometryCombineMode.Exclude, pthgExt, pthgInt);
+                
                 return cmbg;
             }
         }

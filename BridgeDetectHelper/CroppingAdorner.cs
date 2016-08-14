@@ -108,13 +108,14 @@ namespace BridgeDetectHelper
         {
             _vc = new VisualCollection(this);
             _prCropMask = new PuncturedRect();
-            _prCropMask.IsHitTestVisible = false;
+            _prCropMask.IsHitTestVisible = true;
             _prCropMask.RectInterior = rcInit;
             _prCropMask.Fill = Fill;
             _vc.Add(_prCropMask);
             _cnvThumbs = new Canvas();
             _cnvThumbs.HorizontalAlignment = HorizontalAlignment.Stretch;
             _cnvThumbs.VerticalAlignment = VerticalAlignment.Stretch;
+            //_prCropMask.PreviewMouseLeftButtonDown += _prCropMask_PreviewMouseLeftButtonDown;
 
             _vc.Add(_cnvThumbs);
             BuildCorner(ref _crtTop, Cursors.SizeNS);
@@ -145,6 +146,7 @@ namespace BridgeDetectHelper
                 fel.SizeChanged += new SizeChangedEventHandler(AdornedElement_SizeChanged);
             }
         }
+
         #endregion
 
         #region Thumb handlers

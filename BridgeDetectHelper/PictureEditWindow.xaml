@@ -61,7 +61,7 @@
             <Grid>
                 <Border x:Name="bdrPic" BorderBrush="Gray" BorderThickness="1"/>
                 <StackPanel x:Name="spJustOneTool" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                                    Width="200" Height="32">
+                                    Height="32">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource btnConciseStyle}">
                             <Setter Property="Margin" Value="1"/>
@@ -83,10 +83,22 @@
                     <Button x:Name="btnCropImg" Click="btnCropImg_Click">
                         <Image Source="PicToolIcons/Cut_48.png" Width="16" Height="16"/>
                     </Button>
-                    <Button x:Name="btnBrightImg" Click="btnBrightImg_Click">
+                    <Button x:Name="btnBrightImg" Click="btnBrightImg_Click" Visibility="Collapsed">
                         <Image Source="PicToolIcons/Render_48.png" Width="16" Height="16"/>
                     </Button>
+                    <StackPanel Background="LightBlue" Orientation="Horizontal" Margin="1">
+                        <Label Content="亮度" VerticalContentAlignment="Center"/>
+                        <Slider x:Name="sdrBright" ValueChanged="sdrBright_ValueChanged" Minimum="0"
+                                IsMoveToPointEnabled="False" LargeChange="10" TickFrequency="10" 
+                                Maximum="255" Width="150" Height="24"/>
+                        <TextBox Text="{Binding ElementName=sdrBright, Path=Value}" Margin="0,0,2,0" Width="40" Height="26"/>
+                    </StackPanel>
+                    
                 </StackPanel>
+                <Button x:Name="btnCropOK" Width="30" Visibility="Collapsed" Style="{StaticResource btnConciseStyle}" 
+                        Margin="1" Background="LightBlue" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Image Source="PicToolIcons/Check_32.png"/>
+                </Button>
             </Grid>
         </DockPanel>
     </Grid>
