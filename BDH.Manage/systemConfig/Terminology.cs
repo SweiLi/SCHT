@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁检测术语符号表
     /// </summary>
-    class Terminology
+    public class Terminology
     {
         //术语ID
         public string TerId { get; set; }

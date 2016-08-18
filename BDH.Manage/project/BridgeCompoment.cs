@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDH.Manage
 {
-    class BridgeCompoment
+    public class BridgeCompoment
     {
         public string CompomentId { get; set; }
         public string CompomentName { get; set; }

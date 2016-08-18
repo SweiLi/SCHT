@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁组件权重信息
     /// </summary>
-    class BridCompWeight
+    public class BridCompWeight
     {
 
         public string CompWeightId { get; set; }

@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 构件各检测数据扣分表
     /// </summary>
-    class DetectionDeduct
+    public  class DetectionDeduct
     {
         //构件各检测数据ID
         public string DetectionId { get; set; }

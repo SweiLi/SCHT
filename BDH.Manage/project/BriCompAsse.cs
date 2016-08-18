@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁部件表
     /// </summary>
-    class BriCompAsse
+    public class BriCompAsse
     {
         //部件ID
         public string BridCompId { get; set; }

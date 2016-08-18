@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁检测工具表
     /// </summary>
-    class BridgeTools
+    public class BridgeTools
     {
         public string ToolId { get; set; }
         public string ToolName { get; set; }

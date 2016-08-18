@@ -29,15 +29,6 @@ namespace BDH.ViewModel
             }
         }
 
-        public ICommand TestSqlCommand
-        {
-            get
-            {
-                return new RelayCommand((param) =>
-                {
-                    BriComDisInfoManager.Read();
-                });
-            }
-        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 用户图片信息表
     /// </summary>
-    class UserPics
+    public class UserPics
     {
         //用户图片ID
         public string UpicId { get; set; }

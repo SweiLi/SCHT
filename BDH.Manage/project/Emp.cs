@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 项目组员表
     /// </summary>
-    class Emp
+    public  class Emp
     {
 
         //项目组员ID

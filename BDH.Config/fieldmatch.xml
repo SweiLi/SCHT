@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<match tblname="mdtbl_project" objname="Project">
+		<item field="prj_id" fieldtype="string" property="Id" propertytype="string"/>
+		<item field="client_id" fieldtype="string" property="ClientId" propertytype="string"/>
+		<item field="prj_name" fieldtype="string" property="Name" propertytype="string"/>
+		<item field="begintime" fieldtype="datetime" property="BeginTime" propertytype="datetime"/>
+		<item field="endtime" fieldtype="datetime" property="EndTime" propertytype="datetime"/>
+		<item field="prj_describe" fieldtype="string" property="Description" propertytype="string"/>
+		<item field="prj_contract" fieldtype="string" property="ContractNumber" propertytype="string"/>
+		<item field="prj_man" fieldtype="string" property="Creator" propertytype="string"/>
+		<item field="prj_status" fieldtype="int" property="Status" propertytype="int"/>
+		<item field="check_man" fieldtype="string" property="CheckMan" propertytype="string"/>
+		<item field="check_date" fieldtype="datetime" property="CheckDate" propertytype="datetime"/>
+		<item field="prj_principal" fieldtype="string" property="Principal" propertytype="string"/>
+		<item field="prj_sign_date" fieldtype="datetime" property="SignedDate" propertytype="datetime"/>
+		<item field="prj_address" fieldtype="string" property="Address" propertytype="string"/>
+	</match>
+	<match tblname="mdtbl_bridge_xzsb" objname="Bridge">
+		<item field="bri_id" fieldtype="string" property="Id" propertytype="string"/>
+		<item field="prj_id" fieldtype="string" property="ProjectId" propertytype="string"/>
+		<item field="bri_code" fieldtype="string" property="Code" propertytype="string"/>
+		<item field="bri_name" fieldtype="string" property="Name" propertytype="string"/>
+		<item field="bri_pic_name" fieldtype="string" property="PictureName" propertytype="string"/>
+		<item field="bri_xzsb_number" fieldtype="string" property="XzsbNumber" propertytype="string"/>
+		<item field="bri_xzsb_name" fieldtype="string" property="XzsbName" propertytype="string"/>
+		<item field="bri_xzsb_level" fieldtype="int" property="XzsbLevel" propertytype="int"/>
+		<item field="bri_xzsb_pile" fieldtype="string" property="XzsbPile" propertytype="string"/>
+		<item field="bri_xzsb_funtype" fieldtype="datetime" property="XzsbFuntype" propertytype="datetime"/>
+		<item field="bri_xzsb_downchannel" fieldtype="string" property="XzsbDownchannel" propertytype="string"/>
+		<item field="bri_xzsb_downpile" fieldtype="datetime" property="XzsbDownpile" propertytype="datetime"/>
+		<item field="bri_xzsb_designload" fieldtype="string" property="XzsbDesignload" propertytype="string"/>
+		<item field="bri_xzsb_goload" fieldtype="float" property="XzsbGoload" propertytype="float"/>
+		<item field="bri_xzsb_slopelend" fieldtype="datetime" property="XzsbSlopelend" propertytype="datetime"/>
+		<item field="bri_xzsb_pavement" fieldtype="string" property="XzsbPavement" propertytype="string"/>
+		<item field="bri_xzsb_unit" fieldtype="String" property="XzsbUnit" propertytype="String"/>
+		<item field="bri_xzsb_date" fieldtype="datetime" property="XzsbDate" propertytype="datetime"/>
+		<item field="is_cancel" fieldtype="int" property="IsCancel" propertytype="int"/>
+	</match>
+	<match tblname="mdtbl_bridge_children" objname="ChildBridge">
+		<item field="bridge_children_id" fieldtype="string" property="Id" propertytype="string"/>
+		<item field="bri_id" fieldtype="string" property="ParentId" propertytype="string"/>
+		<item field="type_id" fieldtype="string" property="TypeId" propertytype="string"/>
+		<item field="bridge_children_name" fieldtype="string" property="Name" propertytype="string"/>
+		<item field="bridge_children_discribe" fieldtype="string" property="Description" propertytype="string"/>
+		<item field="bridge_pile" fieldtype="string" property="PileId" propertytype="string"/>
+	</match>
+	<match tblname="mdtbl_bridge_type" objname="BridgeType">
+		<item field="type_id" fieldtype="string" property="Id" propertytype="string"/>
+		<item field="type_name" fieldtype="string" property="Name" propertytype="string"/>
+		<item field="type_classify" fieldtype="string" property="Classify" propertytype="string"/>
+	</match>
+	<match tblname="mdtbl_brid_comp_weight" objname="BridCompWeight">
+		<item field="comp_weight_id" fieldtype="string" property="CompWeightId" propertytype="string"/>
+		<item field="bridger_type" fieldtype="string" property="BridgerType" propertytype="string"/>
+		<item field="bridge_structure" fieldtype="string" property="BridgeStructure" propertytype="string"/>
+		<item field="type_i" fieldtype="int" property="TypeI" propertytype="int"/>
+		<item field="asses_comp" fieldtype="string" property="AssesComp" propertytype="string"/>
+		<item field="comp_weight" fieldtype="float" property="CompWeight" propertytype="float"/>
+	</match>
+	<match tblname="mdtbl_detection_deduct" objname="BridCompWeight">
+		<item field="detection_id" fieldtype="string" property="DetectionId" propertytype="string"/>
+		<item field="detection_max_scale" fieldtype="int" property="DetectionMaxScale" propertytype="int"/>
+		<item field="detection_cur_scale" fieldtype="int" property="DetectionCurScale" propertytype="int"/>
+		<item field="detection_deduct_value" fieldtype="float" property="DetectionDeductValue" propertytype="float"/>
+	</match>
+	<match tblname="mdtbl_bri_com_dis_info" objname="BriComDisInfo">
+		<item field="bcdi_id" fieldtype="string" property="BcdiId" propertytype="string"/>
+		<item field="bcdi_bridgeKind" fieldtype="string" property="BcdiBridgeKind" propertytype="string"/>
+		<item field="bcdi_bridgetype" fieldtype="string" property="BcdiBridgetype" propertytype="string"/>
+		<item field="bcdi_struc" fieldtype="string" property="BcdiStruc" propertytype="string"/>
+		<item field="bcdi_component_name" fieldtype="string" property="BcdiComponentName" propertytype="string"/>
+		<item field="bcdi_disease" fieldtype="string" property="BcdiDisease" propertytype="string"/>
+		<item field="bcdi_scale" fieldtype="int" property="BcdiScale" propertytype="int"/>
+		<item field="bcdi_qualitative" fieldtype="string" property="BcdiQualitative" propertytype="string"/>
+		<item field="bcdi_quantify" fieldtype="string" property="BcdiQuantify" propertytype="string"/>
+		<item field="bcdi_is_identify" fieldtype="int" property="BcdiIsIdentify" propertytype="int"/>
+		<item field="bcdi_max_scale" fieldtype="int" property="BcdiMaxScale" propertytype="int"/>
+	</match>
+	<match tblname="mdtbl_deal_pic" objname="DealPic">
+		<item field="deal_pic_id" fieldtype="string" property="DealPicId" propertytype="string"/>
+		<item field="deal_pic_name" fieldtype="string" property="DealPicName" propertytype="string"/>
+		<item field="deal_pic_style" fieldtype="int" property="DealPicStyle" propertytype="int"/>
+		<item field="deal_pic_type" fieldtype="string" property="DealPicType" propertytype="string"/>
+		<item field="deal_pic_diseases" fieldtype="int" property="DeaPicDiseases" propertytype="int"/>
+		<item field="deal_pic_discribe" fieldtype="string" property="DealPicDiscribe" propertytype="string"/>
+		<item field="deal_pic_url" fieldtype="string" property="DealPicUrl" propertytype="string"/>
+		<item field="deal_pic_num" fieldtype="int" property="DealPicNum" propertytype="int"/>
+	</match>
+	<match tblname="mdtbl_pic" objname="Pic">
+		<item field="pic_id" fieldtype="string" property="PicId" propertytype="string"/>
+		<item field="daily_app_id" fieldtype="string" property="DailyAppId" propertytype="string"/>
+		<item field="bridge_children_id" fieldtype="string" property="BridgeChildrenId" propertytype="string"/>
+		<item field="recip_disease_id" fieldtype="string" property="RecipDiseaseId" propertytype="string"/>
+		<item field="material_com_id" fieldtype="string" property="MaterialComId" propertytype="string"/>
+		<item field="con_streng_id" fieldtype="string" property="ConStrengId" propertytype="string"/>
+		<item field="pics_id" fieldtype="string" property="PicsId" propertytype="string"/>
+		<item field="pic_name" fieldtype="string" property="PicName" propertytype="string"/>
+		<item field="pic_title" fieldtype="string" property="PicTitle" propertytype="string"/>
+		<item field="pic_describe" fieldtype="string" property="PicDescribe" propertytype="string"/>
+		<item field="pic_serial" fieldtype="string" property="PicSerial" propertytype="string"/>
+		<item field="pic_man" fieldtype="string" property="PicMan" propertytype="string"/>
+		<item field="pic_time" fieldtype="datetime" property="PicTime" propertytype="datetime"/>
+	</match>
+	<match tblname="daily_out_disease" objname="DailyOutDisease">
+		<item field="recip_disease_id" fieldtype="string" property="RecipDiseId" propertytype="string"/>
+		<item field="daily_app_id" fieldtype="string" property="DailyAppId" propertytype="string"/>
+		<item field="disease_position" fieldtype="string" property="DiseasePosition" propertytype="string"/>
+		<item field="disease_type" fieldtype="string" property="DiseaseType" propertytype="string"/>
+		<item field="disease_scale" fieldtype="int" property="DiseaseScale" propertytype="int"/>
+		<item field="disease_describe" fieldtype="string" property="DiseaseDescribe" propertytype="string"/>
+		<item field="disease_importance" fieldtype="int" property="DiseaseImportance" propertytype="int"/>
+		<item field="disease_remark" fieldtype="string" property="DiseaseRemark" propertytype="string"/>
+	</match>
+	<match tblname="dealpic_pics" objname="DealpicsPics">
+		<item field="deal_pic_id" fieldtype="string" property="DealPicId" propertytype="string"/>
+		<item field="pic_id" fieldtype="string" property="PicId" propertytype="string"/>
+	</match>
+	
+</config>
+
+
+
+
+

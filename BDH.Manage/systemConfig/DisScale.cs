@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 病害标度等级表
     /// </summary>
-    class DisScale
+    public class DisScale
     {
         //编号
         public string ScaleId { get; set; }

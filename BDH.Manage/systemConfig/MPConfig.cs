@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 材质状况和参数配置表
     /// </summary>
-    class MPConfig
+    public class MPConfig
     {
         //材质状况参数配置ID
         public string MPConfigId { get; set; }

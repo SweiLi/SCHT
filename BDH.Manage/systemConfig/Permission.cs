@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 系统权限表
     /// </summary>
-    class Permission
+    public class Permission
     {
         //权限id
         public string PerId { get; set; }

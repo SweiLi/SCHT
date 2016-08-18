@@ -4,17 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BDH.Sql;
+using System.Globalization;
 
 namespace BDH.Manage
 {
     public class BriComDisInfoManager
     {
-        public static void Read()
+        #region 获取桥梁病害指标的最大检测标度
+        public Dictionary<string,int> getDiseasesMaxScale(String bridgetype,string component,string member)
         {
-            ISqlHelper sql_helper = SqlHelperFactory.GetDefaultSqlHelper();
-            string sql = "select count (*) from mdtbl_bri_com_dis_info";
-            int val = sql_helper.ExecuteInt32(sql);
-            Console.WriteLine("count=" + val.ToString());
+            //桥梁类型：梁式桥--（混凝土梁式桥和钢架梁式桥）上部结构、1#橡胶支座
+
+            Dictionary<string, int> diseasesMaxScales = new Dictionary<string, int>();
+
+            return diseasesMaxScales;
         }
+
+        #endregion 获取桥梁病害指标的最大检测标度
     }
 }
