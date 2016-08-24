@@ -24,8 +24,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <local:MyWindowTitleBar Grid.Row="0"/>
         <Grid Grid.Row="1">
@@ -46,6 +44,7 @@
                         <TextBlock Margin="5" Foreground="#038387">
                        请将项目放到：D:/Htbridge/HT4372857483
                         </TextBlock>
+                        
                     </StackPanel>
                 </TabItem>
                 <TabItem  Background="#038387" FontSize="18" Height="60">
@@ -55,7 +54,16 @@
                             <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="Excel导入"/>
                         </StackPanel>
                     </TabItem.Header>
-                    <StackPanel/>
+                    <StackPanel>
+                        <TextBlock Margin="5">打开Excel</TextBlock>
+                        <TextBlock Margin="5">
+                        打开Windows资源管理软件<LineBreak />
+                        找到Excel文件夹存放的位置，打开Excel文件。
+                        </TextBlock>
+                        <TextBlock Margin="5" Foreground="#038387">
+                       Excel文件模板样式下载
+                        </TextBlock>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Background="#038387" FontSize="18" Height="60">
                     <TabItem.Header>
@@ -64,7 +72,23 @@
                             <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="手动导入"/>
                         </StackPanel>
                     </TabItem.Header>
-                    <StackPanel/>
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="40" />
+                            <RowDefinition  Height="40"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content=" 当前图片存放的位置：" Grid.Row="0" Grid.Column="0" Margin="0,3,0,0" />
+                        <TextBlock Text="C:/Desktop/msq/" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                        <Button Content="指定图片位置" Grid.Row="0" Grid.Column="3" Style="{StaticResource btnConfirmStyle}" Width="150" />
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>

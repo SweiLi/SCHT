@@ -10,6 +10,12 @@
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -42,33 +48,28 @@
             <TextBox Text="{Binding BridgeName}" MinWidth="240" Height="30" Grid.Row="1"   Grid.Column="1" HorizontalAlignment="Left" FontSize="18"/>
             <ComboBox Name="cbb" Width="200" Height="30" Grid.Row="0"  Grid.Column="3" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged" >
                 <ComboBoxItem>混凝土梁式桥</ComboBoxItem>
-                <ComboBoxItem>斜拉桥</ComboBoxItem>
-                <ComboBoxItem>悬索桥</ComboBoxItem>
                 <ComboBoxItem>钢梁桥</ComboBoxItem>
-                <ComboBoxItem>钢拱桥</ComboBoxItem>
+                
+                <ComboBoxItem>肋拱桥</ComboBoxItem>
                 <ComboBoxItem>圬工拱桥</ComboBoxItem>
-                <ComboBoxItem>钢-混凝土组合拱桥</ComboBoxItem>
-                <ComboBoxItem>桁架拱桥</ComboBoxItem>
-                <ComboBoxItem>钢架拱桥</ComboBoxItem>
                 <ComboBoxItem>双曲拱桥</ComboBoxItem>
                 <ComboBoxItem>箱形拱桥</ComboBoxItem>
                 <ComboBoxItem>板拱桥</ComboBoxItem>
+                
+                <ComboBoxItem>钢-混凝土组合拱桥</ComboBoxItem>
+                <ComboBoxItem>钢拱桥</ComboBoxItem>
+                
+                <ComboBoxItem>桁架拱桥</ComboBoxItem>
+                <ComboBoxItem>钢架拱桥</ComboBoxItem>
+
+                <ComboBoxItem>斜拉桥</ComboBoxItem>
+                <ComboBoxItem>悬索桥</ComboBoxItem>
             </ComboBox>
         </Grid>
-        <Border  Grid.Row="2" BorderThickness="0,1,0,1" BorderBrush="#038387"  Margin="0,15,0,0">
-            <WrapPanel>
-                <WrapPanel Name="MystackPanel" ItemWidth="499">
+        <Border   Grid.Row="2" BorderThickness="0,1,0,1" BorderBrush="#038387"  Margin="0,15,0,0">
+            <Frame Name="PageContent" NavigationUIVisibility="Hidden">
 
-                </WrapPanel>
-                <WrapPanel Name="MyWrapPanel" ItemWidth="1000" Background="#eeeeee" ItemHeight="40">
-
-                </WrapPanel>
-                <TextBlock Name="MyTextBlock" Background="#dddddd" FontSize="18"  Width="1000" Height="40">
-
-                </TextBlock>
-                
-                
-            </WrapPanel>
+            </Frame>
         </Border>
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="5" Height="60" >
             <Button Command="{Binding SaveCommand}" IsDefault="True" Content="保存" Width="100" x:Name="btnAddProject"  Style="{StaticResource btnConfirmStyle}" />
