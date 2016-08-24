@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁总体技术状况评定描述表
     /// </summary>
-    public  class BriWholeAsse
+  public   class BriWholeAsse
     {
         //id
         public string WholeAsseId { get; set; }

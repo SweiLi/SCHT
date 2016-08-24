@@ -344,18 +344,18 @@ namespace BridgeDetectHelper
         public void ShowPictureLayout(PictureLayouts pl, List<string> img_files)
         {
             bdrPicLay.Child = null;
-            if (pl == PictureLayouts.JustOne)
-            {
-                //bdrPicTool.Visibility = Visibility.Collapsed;
-                dpPicInfo.Visibility = Visibility.Visible;
-                spJustOneTool.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                //bdrPicTool.Visibility = Visibility.Visible;
-                dpPicInfo.Visibility = Visibility.Collapsed;
-                spJustOneTool.Visibility = Visibility.Collapsed;
-            }
+            //if (pl == PictureLayouts.JustOne)
+            //{
+            //    //bdrPicTool.Visibility = Visibility.Collapsed;
+            //    dpPicInfo.Visibility = Visibility.Visible;
+            //    spJustOneTool.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    //bdrPicTool.Visibility = Visibility.Visible;
+            //    dpPicInfo.Visibility = Visibility.Collapsed;
+            //    spJustOneTool.Visibility = Visibility.Collapsed;
+            //}
 
             pic_layout = PictureLayoutFactory.GetCreator(pl);
             if (pic_layout == null) return;

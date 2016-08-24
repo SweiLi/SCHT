@@ -102,11 +102,22 @@
     <Compile Include="BridgeWindow.xaml.cs">
       <DependentUpon>BridgeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="bridge_blxsPage.xaml.cs">
+      <DependentUpon>bridge_blxsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bridge_lsqPage.xaml.cs">
+      <DependentUpon>bridge_lsqPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DesignerItemDecorator.cs" />
+    <Compile Include="CroppingAdorner.cs" />
+    <Compile Include="CropThumb.cs" />
     <Compile Include="DiseaseCountPage.xaml.cs">
       <DependentUpon>DiseaseCountPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MoveThumb.cs" />
+    <Compile Include="DiseaseSummaryWindow.xaml.cs">
+      <DependentUpon>DiseaseSummaryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyWindowTitleBar.xaml.cs">
       <DependentUpon>MyWindowTitleBar.xaml</DependentUpon>
     </Compile>
@@ -155,6 +166,7 @@
     </Compile>
     <Compile Include="ProjectQueryParamConverter.cs" />
     <Compile Include="ProjectStateChineseConverter.cs" />
+    <Compile Include="PuncturedRect.cs" />
     <Compile Include="SystemMgrPage.xaml.cs">
       <DependentUpon>SystemMgrPage.xaml</DependentUpon>
     </Compile>
@@ -182,6 +194,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="bridge_blxsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bridge_lsqPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ButtonStyleResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DiseaseCountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiseaseSummaryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,6 +410,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pic_Excel.png" />
+    <Resource Include="Icons\pic_Handle.png" />
+    <Resource Include="Icons\pic_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PicToolIcons\Check_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

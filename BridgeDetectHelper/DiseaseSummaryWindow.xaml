@@ -1,0 +1,96 @@
+﻿<Window x:Class="BridgeDetectHelper.DiseaseSummaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BridgeDetectHelper"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner" WindowStyle="None" AllowsTransparency="True" BorderBrush="#1B8C90" 
+        BorderThickness="1" Title="DiseaseSummaryWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="OfficeTab.xaml"/>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <local:MyWindowTitleBar Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <TabControl  Margin="5" Template="{StaticResource OfficeTabControl}">
+                <TabItem FontSize="18" >
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Icons/pic_open.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="文件夹导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="5">导入说明</TextBlock>
+                        <TextBlock Margin="5">
+                        点击文件夹打开按钮<LineBreak />
+                        根据提示的文件夹路径，把图片导入到当前文件夹
+                        </TextBlock>
+                        <TextBlock Margin="5" Foreground="#038387">
+                       请将项目放到：D:/Htbridge/HT4372857483
+                        </TextBlock>
+                        
+                    </StackPanel>
+                </TabItem>
+                <TabItem  Background="#038387" FontSize="18" Height="60">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="Icons/pic_Excel.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="Excel导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="5">打开Excel</TextBlock>
+                        <TextBlock Margin="5">
+                        打开Windows资源管理软件<LineBreak />
+                        找到Excel文件夹存放的位置，打开Excel文件。
+                        </TextBlock>
+                        <TextBlock Margin="5" Foreground="#038387">
+                       Excel文件模板样式下载
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Background="#038387" FontSize="18" Height="60">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Icons/pic_Handle.png" Width="24" Height="24"/>
+                            <TextBlock Margin="10,0,0,0" FontSize="16" HorizontalAlignment="Center" Text="手动导入"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="40" />
+                            <RowDefinition  Height="40"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content=" 当前图片存放的位置：" Grid.Row="0" Grid.Column="0" Margin="0,3,0,0" />
+                        <TextBlock Text="C:/Desktop/msq/" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                        <Button Content="指定图片位置" Grid.Row="0" Grid.Column="3" Style="{StaticResource btnConfirmStyle}" Width="150" />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
