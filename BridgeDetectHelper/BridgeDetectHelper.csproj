@@ -105,8 +105,20 @@
     <Compile Include="bridge_blxsPage.xaml.cs">
       <DependentUpon>bridge_blxsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="bridge_ghgqPage.xaml.cs">
+      <DependentUpon>bridge_ghgqPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bridge_gjhjPage.xaml.cs">
+      <DependentUpon>bridge_gjhjPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="bridge_lsqPage.xaml.cs">
       <DependentUpon>bridge_lsqPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bridge_xlqPage.xaml.cs">
+      <DependentUpon>bridge_xlqPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bridge_xsqPage.xaml.cs">
+      <DependentUpon>bridge_xsqPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DesignerItemDecorator.cs" />
     <Compile Include="CroppingAdorner.cs" />
@@ -198,7 +210,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="bridge_ghgqPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bridge_gjhjPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="bridge_lsqPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bridge_xlqPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bridge_xsqPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

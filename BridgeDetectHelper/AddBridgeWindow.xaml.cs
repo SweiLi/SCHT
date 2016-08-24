@@ -18,10 +18,10 @@ using BDH.ViewModel;
 namespace BridgeDetectHelper
 {
 
-       /// <summary>
-             /// AddBridgeWindow.xaml 的交互逻辑
-             /// </summary>
-        public partial class AddBridgeWindow : Window,IAddBridgeView
+    /// <summary>
+    /// AddBridgeWindow.xaml 的交互逻辑
+    /// </summary>
+    public partial class AddBridgeWindow : Window, IAddBridgeView
     {
         public AddBridgeWindow()
         {
@@ -58,30 +58,34 @@ namespace BridgeDetectHelper
             ComboBoxItem cbi = (ComboBoxItem)(sender as ComboBox).SelectedItem;
             string selectedText = cbi.Content.ToString();
             Console.WriteLine("selectedText==" + selectedText);
-            if (selectedText.Equals("混凝土梁式桥")|| selectedText.Equals("钢梁桥")) {
-                Loadlsq(selectedText);
+            if (selectedText.Equals("混凝土梁式桥") || selectedText.Equals("钢梁桥")) {
+                bridge_lsqPage blsq = new bridge_lsqPage();
+                this.PageContent.Content = blsq;
             }
-            else if(selectedText.Equals("圬工拱桥") || selectedText.Equals("板功桥")|| selectedText.Equals("肋拱桥") || selectedText.Equals("箱型拱桥")|| selectedText.Equals("双曲拱桥")){
-                Loadblxs(selectedText);
+            else if (selectedText.Equals("圬工拱桥") || selectedText.Equals("板功桥") || selectedText.Equals("肋拱桥") || selectedText.Equals("箱型拱桥") || selectedText.Equals("双曲拱桥")) {
+                bridge_blxsPage blxs = new bridge_blxsPage();
+                this.PageContent.Content = blxs;
+            }
+            else if (selectedText.Equals("钢架拱桥") || selectedText.Equals("桁架拱桥")) {
+                bridge_gjhjPage gjhj = new bridge_gjhjPage();
+                this.PageContent.Content = gjhj;
+            }
+            else if (selectedText.Equals("钢-混凝土组合拱桥") || selectedText.Equals("钢拱桥")) {
+                bridge_ghgqPage ghgq = new bridge_ghgqPage();
+                this.PageContent.Content = ghgq;
+            }
+            else if (selectedText.Equals("悬索桥")) {
+                bridge_xsqPage xsq = new bridge_xsqPage();
+                this.PageContent.Content = xsq;
+            }
+            else if (selectedText.Equals("斜拉桥"))
+            {
+                bridge_xlqPage xlq = new bridge_xlqPage();
+                this.PageContent.Content = xlq;
             }
         }
-        /// <summary>
-        /// 加载梁式桥的页面
-        /// </summary>
-        /// <param name="selectedText"></param>
-        private void Loadlsq(string selectedText) {
-            bridge_lsqPage blsq = new bridge_lsqPage();
-            this.PageContent.Content = blsq;
-        }
-        /// <summary>
-        /// 加载梁式桥的页面
-        /// </summary>
-        /// <param name="selectedText"></param>
-        private void Loadblxs(string selectedText)
-        {
-            bridge_blxsPage blxs = new bridge_blxsPage();
-            this.PageContent.Content = blxs;
-        }
+      
+            
 
         //private void InitDate(string type)
         //{
