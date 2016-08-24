@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDH.Manage
 {
-    class Structure
+    public class Structure
     {
         //结构位置编号id
         public string StruId { get; set; }

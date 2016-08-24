@@ -36,10 +36,5 @@ namespace BDH.Manage
         }
         #endregion 获取某检测指标扣分值
 
-        public static float  GetMaxScaleByDiseases()
-        {
-
-            return 0.0f;
-        }
     }
 }

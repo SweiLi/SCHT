@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁线性
     /// </summary>
-    class BridgeLinear
+    public class BridgeLinear
     {
         public string BriLineId { get; set; }
         public string MaterialComId { get; set; }

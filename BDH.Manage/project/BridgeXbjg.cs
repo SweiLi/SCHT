@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁下部结构表
     /// </summary>
-    class BridgeXbjg
+    public class BridgeXbjg
     {
         public string BriXbjgId { get; set; }
         public string BriJgjsId { get; set; }

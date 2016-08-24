@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁材质检测方法表
     /// </summary>
-    class Material
+    public class Material
     {
         //检测方法id
         public string FunId { get; set; }

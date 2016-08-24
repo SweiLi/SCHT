@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 定性定量描述扩展表
     /// </summary>
-    class QuantifyExt
+    public class QuantifyExt
     {
         //定量ID
         public string QuantifyExtId { get; set; }

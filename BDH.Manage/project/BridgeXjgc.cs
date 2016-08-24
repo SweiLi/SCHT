@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁修建工程记录
     /// </summary>
-    class BridgeXjgc
+    public class BridgeXjgc
     {
         public string BriGcjlId { get; set; }
         public string BriId { get; set; }

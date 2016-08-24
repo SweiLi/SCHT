@@ -9,7 +9,7 @@ namespace BDH.Manage
     /// <summary>
     /// 桥梁技术状况评定t值表
     /// </summary>
-    class TValue
+    public class TValue
     {
         //桥梁技术状况评定t值ID
         public string TValueId { get; set; }
