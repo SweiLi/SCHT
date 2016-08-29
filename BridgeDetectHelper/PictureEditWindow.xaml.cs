@@ -427,7 +427,9 @@ namespace BridgeDetectHelper
             this.AddCropToElement(cv);
             this.m_BrOriginal = this.m_CropAdr.Fill;
             this.m_IsFreezed = true;
-            
+
+            spJustOneTool.Visibility = Visibility.Hidden;
+            spCropConfirm.Visibility = Visibility.Visible;
         }
 
         WriteableBitmap SetBrightness( BitmapSource bs, int brightness)
@@ -572,6 +574,26 @@ namespace BridgeDetectHelper
             wb.WritePixels(new Int32Rect(0, 0, wb.PixelWidth, wb.PixelHeight), PixelData, 4 * wb.PixelWidth, 0);
 
             return wb;
+        }
+
+        private void btnCropOK_Click(object sender, RoutedEventArgs e)
+        {
+            var cv = bdrPic.Child as Canvas;
+            var cc = cv.Children[0] as ContentControl;
+            var img = cc.Content as Image;
+
+            img.Source = this.m_CropAdr.BpsCrop();
+            this.RemoveCropFromCur();
+
+            spJustOneTool.Visibility = Visibility.Visible;
+            spCropConfirm.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnCropCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.RemoveCropFromCur();
+            spJustOneTool.Visibility = Visibility.Visible;
+            spCropConfirm.Visibility = Visibility.Collapsed;
         }
     }
 }

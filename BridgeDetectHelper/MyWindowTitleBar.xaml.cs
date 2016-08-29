@@ -25,6 +25,39 @@ namespace BridgeDetectHelper
             InitializeComponent();
         }
 
+        public Visibility CanMinimum
+        {
+            get { return (Visibility)GetValue(CanMinimumProperty); }
+            set { SetValue(CanMinimumProperty, value); }
+        }
+
+        public static readonly DependencyProperty CanMinimumProperty =
+            DependencyProperty.Register("CanMinimum", typeof(Visibility), typeof(MyWindowTitleBar),
+                new FrameworkPropertyMetadata(Visibility.Visible, FrameworkPropertyMetadataOptions.AffectsRender,
+                    new PropertyChangedCallback(OnCanMinimumValueChanged)));
+
+        static void OnCanMinimumValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var sender = d as MyWindowTitleBar;
+            sender.btnMin.Visibility = (Visibility)e.NewValue;
+        }
+
+        public Visibility CanMaximum
+        {
+            get { return (Visibility)GetValue(CanMaximumProperty); }
+            set { SetValue(CanMaximumProperty, value); }
+        }
+        public static readonly DependencyProperty CanMaximumProperty =
+            DependencyProperty.Register("CanMaximum", typeof(Visibility), typeof(MyWindowTitleBar),
+                new FrameworkPropertyMetadata(Visibility.Visible, FrameworkPropertyMetadataOptions.AffectsRender,
+                    new PropertyChangedCallback(OnCanMaximumValueChanged)));
+
+        static void OnCanMaximumValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var sender = d as MyWindowTitleBar;
+            sender.btnMin.Visibility = (Visibility)e.NewValue;
+        }
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Window win = Window.GetWindow(this);

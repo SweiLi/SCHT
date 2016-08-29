@@ -33,5 +33,27 @@ namespace BDH.ViewModel
                 });
             }
         }
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return new RelayCommand((param) =>
+                {
+                    this.m_view.PopupMessage.ShowMessage("save", "");
+                });
+            }
+        }
+
+        public ICommand SaveNextCommand
+        {
+            get
+            {
+                return new RelayCommand((param) =>
+                {
+                    this.m_view.PopupMessage.ShowMessage("save next", "");
+                });
+            }
+        }
     }
 }

@@ -16,8 +16,12 @@
         </Grid.RowDefinitions>
         <local:MyWindowTitleBar Grid.Row="0"/>
         <DockPanel Margin="5" Grid.Row="1">
-            <DockPanel x:Name="dpPicInfo" LastChildFill="True" Width="230" DockPanel.Dock="Right">
-                <StackPanel Orientation="Vertical" Width="230" DockPanel.Dock="Top">
+            <Grid x:Name="dpPicInfo" Width="280" DockPanel.Dock="Right">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Row="0">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="FontSize" Value="16"/>
@@ -29,39 +33,47 @@
                     </StackPanel.Resources>
                     <StackPanel>
                         <Label Content="位置："/>
-                        <ComboBox Width="150" Height="26"/>
+                        <ComboBox Width="180" Height="26"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="部件："/>
-                        <ComboBox Width="150" Height="26"/>
+                        <ComboBox Width="180" Height="26"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="构件："/>
-                        <ComboBox Width="150" Height="26"/>
+                        <ComboBox Width="180" Height="26"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="病害类型："/>
-                        <ComboBox Width="120" Height="26"/>
+                        <ComboBox Width="148" Height="26"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="图片名："/>
                         <TextBox BorderBrush="DarkGray" BorderThickness="1" Template="{StaticResource txtCornerStyle}" 
-                                         Width="134" Height="26"/>
+                                         Width="164" Height="26"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="标度："/>
-                        <ComboBox Width="150" Height="26"/>
+                        <ComboBox Width="180" Height="26"/>
                     </StackPanel>
                     <Label Content="病害描述："/>
+                    <TextBox BorderBrush="DarkGray" BorderThickness="1" Template="{StaticResource txtCornerStyle}" 
+                         Margin="5,5,5,0" Height="60"  MaxHeight="300"/>
                 </StackPanel>
-                <TextBox BorderBrush="DarkGray" BorderThickness="1" Template="{StaticResource txtCornerStyle}" 
-                         Margin="5,5,5,0" MaxHeight="300"/>
-            </DockPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Button Command="{Binding SaveCommand}" Style="{StaticResource btnFuncStyle}" Content="保存" Width="100" Height="60"/>
+                    <Button Command="{Binding SaveNextCommand}" Style="{StaticResource btnFuncStyle}" Content="保存并下一张" Width="160" Height="60"/>
+                </StackPanel>
+            </Grid>
 
             <Grid>
-                <Border x:Name="bdrPic" BorderBrush="Gray" BorderThickness="1"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border x:Name="bdrPic" BorderBrush="Gray" BorderThickness="1" Grid.Row="1"/>
                 <StackPanel x:Name="spJustOneTool" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                                    Height="32">
+                                    Height="32" Grid.Row="0">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource btnConciseStyle}">
                             <Setter Property="Margin" Value="1"/>
@@ -93,12 +105,19 @@
                                 Maximum="255" Width="150" Height="24"/>
                         <TextBox Text="{Binding ElementName=sdrBright, Path=Value}" Margin="0,0,2,0" Width="40" Height="26"/>
                     </StackPanel>
-                    
                 </StackPanel>
-                <Button x:Name="btnCropOK" Width="30" Visibility="Collapsed" Style="{StaticResource btnConciseStyle}" 
-                        Margin="1" Background="LightBlue" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <Image Source="PicToolIcons/Check_32.png"/>
-                </Button>
+                <StackPanel x:Name="spCropConfirm" Orientation="Horizontal" Visibility="Collapsed"
+                            HorizontalAlignment="Right" VerticalAlignment="Top" Margin="1" Grid.Row="0">
+                    <Button x:Name="btnCropOK" Click="btnCropOK_Click" Width="30" Style="{StaticResource btnConciseStyle}" 
+                        Margin="0,0,5,0" Background="LightBlue" Height="30" >
+                        <Image Source="PicToolIcons/Check_32.png"/>
+                    </Button>
+                    <Button x:Name="btnCropCancel" Click="btnCropCancel_Click" Width="30" Style="{StaticResource btnConciseStyle}" 
+                        Background="LightBlue" Height="30">
+                        <Image Source="PicToolIcons/Cancel_32.png"/>
+                    </Button>
+                </StackPanel>
+                
             </Grid>
         </DockPanel>
     </Grid>
