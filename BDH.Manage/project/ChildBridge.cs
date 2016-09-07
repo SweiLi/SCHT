@@ -23,5 +23,14 @@ namespace BDH.Manage
         public string Description { get; set; }
         //子桥桩号
         public string PileId { get; set; }
+
+        public int KuaShu { get; set; }
+        public int DunShu { get; set; }
+        public string QiDian { get; set; }
+        public string ZhongDian { get; set; }
+        public int FuShu { get; set; }
+        public int IsMain { get; set; }
+        public int NotMain { get; set; }
+
     }
 }
